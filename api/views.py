@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 from rest_framework import mixins
-from api.serializers import RealEstateFundSerializer
-from core.models import RealEstateFund
+from api.serializers import RealEstateFundSerializer, PriceObservationSerializer
+from core.models import RealEstateFund, PriceObservation
 
 
 class RealEstateFundViewSet(
@@ -11,3 +11,12 @@ class RealEstateFundViewSet(
         viewsets.GenericViewSet):
     queryset = RealEstateFund.objects.filter(is_active=True).all()
     serializer_class = RealEstateFundSerializer
+
+
+class PriceObservationViewSet(
+        mixins.RetrieveModelMixin,
+        mixins.ListModelMixin,
+        mixins.CreateModelMixin,
+        viewsets.GenericViewSet):
+    queryset = PriceObservation.objects.all()
+    serializer_class = PriceObservationSerializer
