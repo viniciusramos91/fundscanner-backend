@@ -26,4 +26,4 @@ class PriceObservation(models.Model):
     square_meter_rent_price = models.DecimalField(max_digits=8, decimal_places=2)
     capitalization_rate = models.DecimalField(max_digits=5, decimal_places=2)
     average_vacancy = models.DecimalField(max_digits=5, decimal_places=2)
-    created_at = models.DateTimeField(auto_created=True)
+    created_at = models.DateTimeField(auto_now_add=True)
